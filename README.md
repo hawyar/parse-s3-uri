@@ -1,4 +1,4 @@
-# pase-s3-uri
+# parse-s3-uri
 
 ![Test](https://github.com/hawyar/parse-s3-uri/actions/workflows/test.yml/badge.svg)
 
@@ -9,7 +9,8 @@
 ## Usage
 
 ```js
-import { parseURI } from "parse-s3-uri";
+import { parseURI } from "parse-s3-uri"
+
 const { bucket, key } = parseURI("s3://superbucket/more/files")
 // { bucket: 'superbucket', key: '/more/files' }
 ```
@@ -17,8 +18,8 @@ const { bucket, key } = parseURI("s3://superbucket/more/files")
 return the file name
 
 ```js
-const { bucket, key } = parseURI("s3://org/media/asset/file.css", { file: true });
-// { bucket: 'org', key: 'media/asset/file.css', file: 'file.css' }
+const { bucket, key } = parseURI("s3://org/media/asset/file.css", { file: true })
+// { bucket: 'org', key: '/media/asset/file.css', file: 'file.css' }
 ```
 
 ## Development
