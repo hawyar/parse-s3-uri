@@ -2,19 +2,29 @@
   "name": "parse-s3-uri",
   "version": "1.0.0",
   "description": "Parse S3 URI",
-  "main": "index.js",
+  "main": "./dist/index.cjs",
   "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
   "scripts": {
     "test": "tap --no-coverage --reporter=specy -J --color",
-    "build:cjs": "esbuild index.js --format=cjs --bundle --platform=node --outfile=build/index.csj.js",
-    "build:esm": "esbuild index.js --format=esm --bundle --platform=node --outfile=build/index.esm.js",
+    "build:cjs": "esbuild index.js --format=cjs --minify --platform=node --outfile=dist/index.cjs",
+    "build:esm": "esbuild index.js --format=esm --minify --platform=node --outfile=dist/index.mjs",
     "build": "npm run build:cjs && npm run build:esm",
-    "lint": "eslint --ext .js,.json index.js"
+    "fix": "standard --fix"
   },
   "author": "hawyar",
   "devDependencies": {
     "esbuild": "^0.13.4",
+    "standard": "^16.0.4",
     "tap": "^15.0.9"
+  },
+  "standard": {
+    "ignore": ["/dist/**"]
   },
   "license": "MIT"
 }
